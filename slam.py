@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/local/bin/ python3
 import os
 import sys
 
@@ -164,7 +164,7 @@ if __name__ == "__main__":
 
   disp2d, disp3d = None, None
     
-  if os.getenv("HEADLESS") is None:
+  if os.getenv(  "HEADLESS") is None:
     disp3d = Display3D()
 
   cap = cv2.VideoCapture(sys.argv[1])
@@ -211,10 +211,9 @@ if __name__ == "__main__":
   i = 0
   while cap.isOpened():
     ret, frame = cap.read()
-    frame = cv2.resize(frame, (W, H))
-
     print("\n*** frame %d/%d ***" % (i, CNT))
     if ret == True:
+      frame = cv2.resize(frame, (W, H))
       slam.process_frame(frame, None if gt_pose is None else np.linalg.inv(gt_pose[i]))
     else:
       break
@@ -234,4 +233,5 @@ if __name__ == "__main__":
         f.write(mapp.serialize())
         exit(0)
     """
-
+  print("end")   
+  exit(1)   
