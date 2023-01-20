@@ -6,3 +6,4 @@ build
 debug.txt
 kitti
 map.json
+.DS_Store
