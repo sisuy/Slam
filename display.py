@@ -13,7 +13,7 @@ class Display2D(object):
       pass
 
     # draw
-    #pygame.surfarray.blit_array(self.surface, img.swapaxes(0,1)[:, :, [2,1,0]])
+    pygame.surfarray.blit_array(self.surface, img.swapaxes(0,1)[:, :, [2,1,0]])
 
     # RGB, not BGR (might have to switch in twitchslam)
     pygame.surfarray.blit_array(self.surface, img.swapaxes(0,1)[:, :, [0,1,2]])
@@ -53,7 +53,9 @@ class Display3D(object):
 
     # Create Interactive View in window
     self.dcam = pangolin.CreateDisplay()
+    print("-----------------------------------view---------------------------")
     self.dcam.SetBounds(0.0, 1.0, 0.0, 1.0, w/h)
+    print("-----------------------------------view---------------------------")
     self.dcam.SetHandler(self.handler)
     # hack to avoid small Pangolin, no idea why it's *2
     self.dcam.Resize(pangolin.Viewport(0,0,w*2,h*2))

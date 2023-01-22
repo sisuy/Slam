@@ -165,6 +165,7 @@ if __name__ == "__main__":
   disp2d, disp3d = None, None
     
   if os.getenv(  "HEADLESS") is None:
+    print("VIEW")
     disp3d = Display3D()
 
   cap = cv2.VideoCapture(sys.argv[1])
